@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket         = "811264948090-terraform-states"
     key            = "global/s3-backend/terraform.tfstate"
-    region         = "us-east-1
+    region         = "us-east-1"
     dynamodb_table = "terraform-lock"
     encrypt        = true
   }
@@ -20,6 +20,7 @@ terraform {
     }
   }
 }
+
 provider "aws" {
   region = "us-east-1"
 }
@@ -27,7 +28,6 @@ provider "aws" {
 # ------------------------------------------------------------------------------
 # CREATE THE S3 BUCKET
 # ------------------------------------------------------------------------------
-
 data "aws_caller_identity" "current" {}
 
 locals {
